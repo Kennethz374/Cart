@@ -1,10 +1,9 @@
 import React from "react";
 import Item from "./Item";
-// import cartItem from "./data";
 import { useGlobalContext } from "./context";
 
 function ItemContainer() {
-	const { cart } = useGlobalContext();
+	const { cart, total } = useGlobalContext();
 	return (
 		<section className="bag">
 			<h1 className="title">kenneth's cart</h1>
@@ -16,7 +15,7 @@ function ItemContainer() {
 			<hr />
 			<div className="checkout">
 				<h4>total</h4>
-				<h4>$ 12222</h4>
+				<h4>$ {total}</h4>
 			</div>
 		</section>
 	);

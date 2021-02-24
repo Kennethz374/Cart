@@ -26,6 +26,19 @@ header .header-center {
           justify-content: space-between;
 }
 
+header .header-center .cart-with-amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header .header-center .cart-with-amount h2 {
+  font-size: 1.5rem;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
 header h1 {
   padding: 0.5rem;
   font-size: 2rem;

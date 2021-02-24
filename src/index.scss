@@ -19,6 +19,14 @@ header {
 		display: flex;
 		margin: 5px auto;
 		justify-content: space-between;
+
+		.cart-with-amount {
+			display: flex;
+			h2 {
+				font-size: 1.5rem;
+				align-items: flex-start;
+			}
+		}
 	}
 	h1 {
 		padding: 0.5rem;
