@@ -3,7 +3,7 @@ export const reducer = (state, action) => {
 		return { ...state, cart: [] };
 	}
 	if (action.type === "REMOVE") {
-		const newCart = state.cart.filter((item) => item.id != action.payload);
+		const newCart = state.cart.filter((item) => item.id !== action.payload);
 		return { ...state, cart: newCart };
 	}
 
@@ -24,5 +24,24 @@ export const reducer = (state, action) => {
 		return { ...state, cart: tempCart };
 	}
 
-	return state;
+	if (action.type === "GET_TOTAL") {
+		let amountArr = state.cart.map((item) => item.amount);
+		if (!amountArr.length) {
+			return { ...state, cart: [], totalQuantity: 0 };
+		} else {
+			let tempTotalQuantity = amountArr.reduce((acc, val) => acc + val);
+			return { ...state, totalQuantity: tempTotalQuantity };
+		}
+	}
+
+	if (action.type === "GET_PRICE") {
+		let amountArr = state.cart.map((item) => item.amount * item.price);
+		if (!amountArr.length) {
+			return { ...state, cart: [] };
+		} else {
+			let tempTotalPrice = amountArr.reduce((acc, val) => acc + val);
+			return { ...state, totalPrice: tempTotalPrice };
+		}
+	}
+	throw new Error("NOT MATCHING ACTION FOUND...");
 };

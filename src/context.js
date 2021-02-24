@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useReducer, useEffect } from "react";
 import cartItem from "./data";
 import { reducer } from "./reducer";
 const AppContext = React.createContext();
@@ -6,8 +6,8 @@ const AppContext = React.createContext();
 const defaultState = {
 	loading: false,
 	cart: cartItem,
-	total: 0,
-	totalAmount: 0,
+	totalPrice: 0,
+	totalQuantity: 0,
 };
 
 const AppProvider = ({ children }) => {
@@ -25,8 +25,32 @@ const AppProvider = ({ children }) => {
 		dispatch({ type: "TOGGLE_AMOUNT", payload: { id, type } });
 	};
 
+	const getTotalQuantity = () => {
+		dispatch({ type: "GET_TOTAL" });
+	};
+
+	const getTotalPrice = () => {
+		dispatch({ type: "GET_PRICE" });
+	};
+
+	useEffect(() => {
+		getTotalQuantity();
+	}, [state.cart]);
+	useEffect(() => {
+		getTotalPrice();
+	}, [state.cart]);
+
 	return (
-		<AppContext.Provider value={{ ...state, clearAll, remove, toggleAmount }}>
+		<AppContext.Provider
+			value={{
+				...state,
+				clearAll,
+				remove,
+				toggleAmount,
+				// getTotalQuantity,
+				// getTotalPrice,
+			}}
+		>
 			{children}
 		</AppContext.Provider>
 	);

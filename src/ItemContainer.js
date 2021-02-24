@@ -3,7 +3,7 @@ import Item from "./Item";
 import { useGlobalContext } from "./context";
 
 function ItemContainer() {
-	const { cart, total, clearAll } = useGlobalContext();
+	const { cart, totalPrice, clearAll } = useGlobalContext();
 	if (!cart.length) {
 		return (
 			<section className="bag">
@@ -23,7 +23,7 @@ function ItemContainer() {
 			<hr />
 			<div className="checkout">
 				<h4>total</h4>
-				<h4>$ {total}</h4>
+				<h4>$ {totalPrice.toFixed(2)}</h4>
 			</div>
 
 			<button className="clear-all" onClick={clearAll}>
