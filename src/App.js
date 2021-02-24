@@ -1,18 +1,12 @@
 import React from "react";
-import { GiShoppingCart } from "react-icons/gi";
+import Header from "./header";
 import Item from "./Item";
 import cartItem from "./data";
 
 function App() {
 	return (
 		<>
-			<header>
-				<div className="header-center">
-					<h1>Reducer Shopping Cart</h1>
-					<GiShoppingCart className="cart" />
-				</div>
-			</header>
-
+			<Header />
 			<section className="bag">
 				<h1 className="title">kenneth's cart</h1>
 
