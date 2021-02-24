@@ -1,8 +1,10 @@
 import React from "react";
 import Item from "./Item";
 import cartItem from "./data";
+// import { useGlobalContext } from "./context";
 
 function ItemContainer() {
+	// const { cartItem } = useGlobalContext();
 	return (
 		<section className="bag">
 			<h1 className="title">kenneth's cart</h1>
