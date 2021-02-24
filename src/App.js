@@ -52,6 +52,12 @@ function App() {
 				{/* item component ============================ */}
 
 				{/* Checkout ============= total */}
+
+				<hr />
+				<div className="checkout">
+					<h4>total</h4>
+					<h4>$ 1199.99</h4>
+				</div>
 			</section>
 		</>
 	);

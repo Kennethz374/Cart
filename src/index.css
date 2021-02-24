@@ -51,6 +51,10 @@ header .cart {
   text-align: center;
 }
 
+.bag .title {
+  font-size: 2rem;
+}
+
 .bag .item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -122,5 +126,23 @@ header .cart {
 
 .bag .item .item-cal .item-quantity {
   margin: auto auto;
+}
+
+hr {
+  width: 100%;
+  border: 2px solid black;
+}
+
+.checkout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.checkout h4 {
+  padding: 4px;
 }
 /*# sourceMappingURL=index.css.map */

@@ -39,6 +39,10 @@ header {
 	margin: 1rem auto;
 	text-align: center;
 
+	.title {
+		font-size: 2rem;
+	}
+
 	.item {
 		display: flex;
 		// background-color: #e8f6ec;
@@ -93,5 +97,19 @@ header {
 				margin: auto auto;
 			}
 		}
+	}
+}
+
+hr {
+	width: 100%;
+	border: 2px solid black;
+}
+
+.checkout {
+	display: flex;
+	justify-content: space-between;
+
+	h4 {
+		padding: 4px;
 	}
 }
