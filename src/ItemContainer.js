@@ -17,6 +17,8 @@ function ItemContainer() {
 				<h4>total</h4>
 				<h4>$ {total}</h4>
 			</div>
+
+			<button className="clear-all">Clear Cart</button>
 		</section>
 	);
 }
