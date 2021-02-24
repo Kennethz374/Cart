@@ -13,8 +13,14 @@ const defaultState = {
 const AppProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(reducer, defaultState);
 
+	const clearAll = () => {
+		dispatch({ type: "CLEAR_ALL" });
+	};
+
 	return (
-		<AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
+		<AppContext.Provider value={{ ...state, clearAll }}>
+			{children}
+		</AppContext.Provider>
 	);
 };
 
