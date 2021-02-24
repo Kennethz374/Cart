@@ -1,12 +1,20 @@
 import React, { useContext, useReducer } from "react";
 import cartItem from "./data";
+import { reducer } from "./reducer";
 const AppContext = React.createContext();
 
+const defaultState = {
+	loading: false,
+	cart: cartItem,
+	total: 0,
+	totalAmount: 0,
+};
+
 const AppProvider = ({ children }) => {
+	const [state, dispatch] = useReducer(reducer, defaultState);
+
 	return (
-		<AppContext.Provider value={{ cart: cartItem, loading: false }}>
-			{children}
-		</AppContext.Provider>
+		<AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
 	);
 };
 

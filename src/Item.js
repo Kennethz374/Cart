@@ -1,6 +1,6 @@
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import React from "react";
-import { useGlobalContext } from "./context";
+// import { useGlobalContext } from "./context";
 
 function Item({ img, title, price, amount }) {
 	return (
