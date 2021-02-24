@@ -1,4 +1,4 @@
-export default [
+let cartItem = [
 	{
 		id: 1,
 		title: "Samsung Galaxy S7",
@@ -24,3 +24,4 @@ export default [
 		amount: 1,
 	},
 ];
+export default cartItem;

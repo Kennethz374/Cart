@@ -1,6 +1,8 @@
-import React from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-function Item({ title, price, img, amount }) {
+
+import React from "react";
+
+function Item({ img, title, price, amount }) {
 	return (
 		<div className="item">
 			<img src={img} alt="img" className="item-img" />
