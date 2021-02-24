@@ -3,7 +3,6 @@ import React from "react";
 import { useGlobalContext } from "./context";
 
 function Item({ img, title, price, amount }) {
-	// const { img, title, price, amount } = useGlobalContext();
 	return (
 		<div className="item">
 			<img src={img} alt="img" className="item-img" />

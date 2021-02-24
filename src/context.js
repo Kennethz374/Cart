@@ -4,7 +4,9 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
 	return (
-		<AppContext.Provider value={"hello world"}>{children}</AppContext.Provider>
+		<AppContext.Provider value={{ cart: cartItem, loading: false }}>
+			{children}
+		</AppContext.Provider>
 	);
 };
 
