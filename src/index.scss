@@ -46,6 +46,7 @@ header {
 	flex-direction: column;
 	margin: 1rem auto;
 	text-align: center;
+	position: relative;
 
 	.title {
 		font-size: 2rem;
@@ -110,7 +111,7 @@ header {
 
 hr {
 	width: 100%;
-	border: 2px solid black;
+	border: 1px solid black;
 }
 
 .checkout {
@@ -130,4 +131,48 @@ hr {
 	border: 1px solid red;
 	background: transparent;
 	border-radius: 5px;
+}
+
+// Modal===============
+.modal {
+	position: absolute;
+	// background: black;
+	// opacity: 0.9;
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.overlay {
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		background: black;
+		opacity: 0.9;
+	}
+
+	.modal-center {
+		border: 2px solid red;
+		padding: 1rem;
+		border-radius: 10px;
+		background: white;
+		color: red;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		z-index: 20;
+
+		.btns {
+			display: flex;
+			justify-content: space-around;
+			margin-top: 1.5rem;
+			.btn {
+				border: 1px solid red;
+				padding: 0.5rem;
+				border-radius: 10px;
+				background-color: transparent;
+				cursor: pointer;
+			}
+		}
+	}
 }

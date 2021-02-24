@@ -1,9 +1,10 @@
 import React from "react";
 import Item from "./Item";
 import { useGlobalContext } from "./context";
+import ConfirmationModal from "./ConfirmationModal";
 
 function ItemContainer() {
-	const { cart, totalPrice, clearAll } = useGlobalContext();
+	const { cart, totalPrice, toggleModal, isModalOpen } = useGlobalContext();
 	if (!cart.length) {
 		return (
 			<section className="bag">
@@ -12,24 +13,31 @@ function ItemContainer() {
 			</section>
 		);
 	}
+	// if (isModalOpen) {
+	// 	return <ConfirmationModal />;
+	// }
+
 	return (
-		<section className="bag">
-			<h1 className="title">kenneth's cart</h1>
+		<>
+			<section className="bag">
+				<h1 className="title">kenneth's cart</h1>
 
-			{cart.map((item) => {
-				return <Item key={item.id} {...item} />;
-			})}
+				{cart.map((item) => {
+					return <Item key={item.id} {...item} />;
+				})}
 
-			<hr />
-			<div className="checkout">
-				<h4>total</h4>
-				<h4>$ {totalPrice.toFixed(2)}</h4>
-			</div>
+				<hr />
+				<div className="checkout">
+					<h4>total</h4>
+					<h4>$ {totalPrice.toFixed(2)}</h4>
+				</div>
 
-			<button className="clear-all" onClick={clearAll}>
-				Clear Cart
-			</button>
-		</section>
+				<button className="clear-all" onClick={toggleModal}>
+					Clear Cart
+				</button>
+				{isModalOpen && <ConfirmationModal />}
+			</section>
+		</>
 	);
 }
 

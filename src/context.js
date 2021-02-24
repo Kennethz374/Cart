@@ -8,6 +8,7 @@ const defaultState = {
 	cart: cartItem,
 	totalPrice: 0,
 	totalQuantity: 0,
+	isModalOpen: false,
 };
 
 const AppProvider = ({ children }) => {
@@ -33,6 +34,10 @@ const AppProvider = ({ children }) => {
 		dispatch({ type: "GET_PRICE" });
 	};
 
+	const toggleModal = () => {
+		dispatch({ type: "TOGGLE_MODAL" });
+	};
+
 	useEffect(() => {
 		getTotalQuantity();
 	}, [state.cart]);
@@ -47,8 +52,7 @@ const AppProvider = ({ children }) => {
 				clearAll,
 				remove,
 				toggleAmount,
-				// getTotalQuantity,
-				// getTotalPrice,
+				toggleModal,
 			}}
 		>
 			{children}

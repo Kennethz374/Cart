@@ -43,5 +43,9 @@ export const reducer = (state, action) => {
 			return { ...state, totalPrice: tempTotalPrice };
 		}
 	}
+
+	if (action.type === "TOGGLE_MODAL") {
+		return { ...state, isModalOpen: !state.isModalOpen };
+	}
 	throw new Error("NOT MATCHING ACTION FOUND...");
 };
