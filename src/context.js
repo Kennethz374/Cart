@@ -26,23 +26,31 @@ const AppProvider = ({ children }) => {
 		dispatch({ type: "TOGGLE_AMOUNT", payload: { id, type } });
 	};
 
-	const getTotalQuantity = () => {
-		dispatch({ type: "GET_TOTAL" });
-	};
+	// const getTotalQuantity = () => {
+	// 	dispatch({ type: "GET_TOTAL" });
+	// };
 
-	const getTotalPrice = () => {
-		dispatch({ type: "GET_PRICE" });
-	};
+	// const getTotalPrice = () => {
+	// 	dispatch({ type: "GET_PRICE" });
+	// };
 
 	const toggleModal = () => {
 		dispatch({ type: "TOGGLE_MODAL" });
 	};
 
+	const getTotal = () => {
+		dispatch({ type: "GET_TOTAL" });
+	};
+
+	// useEffect(() => {
+	// 	getTotalQuantity();
+	// }, [state.cart]);
+	// useEffect(() => {
+	// 	getTotalPrice();
+	// }, [state.cart]);
+
 	useEffect(() => {
-		getTotalQuantity();
-	}, [state.cart]);
-	useEffect(() => {
-		getTotalPrice();
+		getTotal();
 	}, [state.cart]);
 
 	return (

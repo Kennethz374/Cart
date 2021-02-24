@@ -25,24 +25,44 @@ export const reducer = (state, action) => {
 	}
 
 	if (action.type === "GET_TOTAL") {
-		let amountArr = state.cart.map((item) => item.amount);
-		if (!amountArr.length) {
-			return { ...state, cart: [], totalQuantity: 0 };
-		} else {
-			let tempTotalQuantity = amountArr.reduce((acc, val) => acc + val);
-			return { ...state, totalQuantity: tempTotalQuantity };
-		}
-	}
+		let { totalPrice, totalQuantity } = state.cart.reduce(
+			(cartTotal, cartItem) => {
+				const { price, amount } = cartItem;
+				const singleItemTotal = price * amount;
 
-	if (action.type === "GET_PRICE") {
-		let amountArr = state.cart.map((item) => item.amount * item.price);
-		if (!amountArr.length) {
-			return { ...state, cart: [] };
-		} else {
-			let tempTotalPrice = amountArr.reduce((acc, val) => acc + val);
-			return { ...state, totalPrice: tempTotalPrice };
-		}
+				cartTotal.totalPrice += singleItemTotal;
+				cartTotal.totalQuantity += amount;
+				return cartTotal;
+			},
+			{
+				totalPrice: 0,
+				totalQuantity: 0,
+			}
+		);
+		totalPrice.toFixed(2);
+		return { ...state, totalPrice, totalQuantity };
 	}
+	// ============MY CODE IS EASIER TO UNDERSTAND=================
+
+	// if (action.type === "GET_TOTAL") {
+	// 	let amountArr = state.cart.map((item) => item.amount);
+	// 	if (!amountArr.length) {
+	// 		return { ...state, cart: [], totalQuantity: 0 };
+	// 	} else {
+	// 		let tempTotalQuantity = amountArr.reduce((acc, val) => acc + val);
+	// 		return { ...state, totalQuantity: tempTotalQuantity };
+	// 	}
+	// }
+
+	// if (action.type === "GET_PRICE") {
+	// 	let amountArr = state.cart.map((item) => item.amount * item.price);
+	// 	if (!amountArr.length) {
+	// 		return { ...state, cart: [] };
+	// 	} else {
+	// 		let tempTotalPrice = amountArr.reduce((acc, val) => acc + val);
+	// 		return { ...state, totalPrice: tempTotalPrice };
+	// 	}
+	// }
 
 	if (action.type === "TOGGLE_MODAL") {
 		return { ...state, isModalOpen: !state.isModalOpen };
